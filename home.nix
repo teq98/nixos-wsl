@@ -18,7 +18,6 @@ packages-unstable = with pkgs.unstable; [
 ];
 packages-stable = with pkgs; [
 	python3
-	python312Packages.west
 	fastfetch
 ];
 in {
