@@ -90,7 +90,7 @@ programs.nixvim = {
 		{
 			mode = "n";
 			key = "<leader>g";
-			action = "<cmd>tagbartoggle<cr>";
+			action = "<cmd>TagbarToggle<cr>";
 		}
 	];
 };
