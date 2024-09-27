@@ -92,6 +92,11 @@ programs.nixvim = {
 			key = "<leader>g";
 			action = "<cmd>TagbarToggle<cr>";
 		}
+		{
+			key = "<leader>h";
+			action = "<cmd>noh<cr>";
+			# stop highlighting after search
+		}
 	];
 };
 
