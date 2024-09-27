@@ -17,6 +17,9 @@ programs.nixvim = {
 		signcolumn = "number";
 		smartcase = true;
 
+		autoindent = true;
+		smartindent	=	true;
+
 		hlsearch = true;
 		incsearch = true;
 
@@ -26,8 +29,15 @@ programs.nixvim = {
 		comment.enable = true;
 		rustaceanvim.enable = true;
 		telescope.enable = true;
-		floaterm.enable = true;
-		floaterm.autoclose = 2; # Auto-closes without Proceed exited 101
+		toggleterm = {
+				enable = true;
+				settings.direction = "horizontal";
+				settings.size	=	24;
+		};
+		tagbar = {
+			enable = true;
+			tagsPackage = pkgs.universal-ctags; 
+		};
 		cmp = {
 			enable = true;
 			autoEnableSources = true;
@@ -54,7 +64,11 @@ programs.nixvim = {
 				};
 			};
 		};
+		web-devicons.enable	=	true;
 	};
+	
+	extraPlugins = with	pkgs.vimPlugins; [
+	];
 
 	globals.mapleader = " ";
 	keymaps = [
@@ -65,9 +79,21 @@ programs.nixvim = {
 		}
 		{
 			key = "<leader>t";
-			action = "<cmd>FloatermNew <cr>";
+			action = "<cmd>ToggleTerm <cr>";
 			options.nowait = true;
+		}
+		{
+			mode = "t";
+			key = "<Esc>";
+			action = "<C-\\><C-n>";
+		}
+		{
+			mode = "n";
+			key = "<leader>g";
+			action = "<cmd>tagbartoggle<cr>";
 		}
 	];
 };
+
+home.stateVersion	=	"24.05";
 }

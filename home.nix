@@ -16,10 +16,12 @@ packages-unstable = with pkgs.unstable; [
 	uv
 	fzf
 ];
+
 packages-stable = with pkgs; [
 	python3
 	fastfetch
 ];
+
 in {
 
   time.timeZone = "Asia/Seoul";
@@ -50,14 +52,12 @@ in {
 
 		imports = [
 			./home-manager.nix
+			inputs.nixvim.homeManagerModules.nixvim
+			./vim.nix
 		];
   };
 
   system.stateVersion = "24.05";
-
-	imports = [
-		./vim.nix
-	];
 
   wsl = {
     enable = true;

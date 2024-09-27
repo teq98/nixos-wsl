@@ -73,7 +73,6 @@ outputs = inputs:
 		hostname = "nixos";
 		username = "yhn";
 		modules = [
-			nixvim.nixosModules.nixvim
 			nixos-wsl.nixosModules.wsl
 			./home.nix
 		];
